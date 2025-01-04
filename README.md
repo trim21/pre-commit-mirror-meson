@@ -1,4 +1,4 @@
-clang-format mirror
+meson mirror
 ===================
 
 Mirror of `meson` package for pre-commit.
