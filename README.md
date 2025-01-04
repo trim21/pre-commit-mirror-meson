@@ -13,9 +13,11 @@ For meson: see https://github.com/mesonbuild/meson
 Add this to your `.pre-commit-config.yaml`:
 
 ```yaml
--   repo: https://github.com/trim21/pre-commit-mirror-meson
-    rev: ''  # Use the sha / tag you want to point at
-    hooks:
-    -   id: meson-fmt-fix # format file in place
-    -   id: meson-fmt-check # do check only
+- repo: https://github.com/trim21/pre-commit-mirror-meson
+  rev: ''  # Use the sha / tag you want to point at
+  hooks:
+    - id: meson-fmt
+      args: ['--inplace'] # format file in place
+    - id: meson-fmt
+      args: ['--check-only'] # do check only
 ```
