@@ -7,7 +7,6 @@ For pre-commit: see https://github.com/pre-commit/pre-commit
 
 For meson: see https://github.com/mesonbuild/meson
 
-
 ### Using meson with pre-commit
 
 Add this to your `.pre-commit-config.yaml`:

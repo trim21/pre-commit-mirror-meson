@@ -17,8 +17,19 @@ jobs:
         with:
           python-version: '3.x'
 
-      - run: pip install pre-commit-mirror-maker
-      - run: git config --global user.name 'Github Actions'
-      - run: git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-      - run: pre-commit-mirror . --id='meson-fmt' --language=python --package-name=meson --entry='meson fmt' --files-regex='^(.*/)?(meson\.build)$'
-      - run: git push origin HEAD:refs/heads/master --tags
+      - run: echo "MESON_VERSION=$(python ./scripts/get_current_ver.py)" >> $GITHUB_ENV
+
+      - run: echo get tag ${{ env.MESON_VERSION }}
+
+      - uses: bbonkr/git-tag-check-action@v1
+        id: git_tag_check
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: '${{ env.MESON_VERSION }}'
+
+      - uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: "${{ env.MESON_VERSION }}"
+          tag_exists_error: false
+          message: "Latest release"

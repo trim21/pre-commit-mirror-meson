@@ -1,10 +1,20 @@
--   id: meson-fmt
-    name: meson
-    description: ''
-    entry: meson fmt
-    language: python
-    'files': ^(.*/)?(meson\.build)$
-    args: []
-    require_serial: false
-    additional_dependencies: []
-    minimum_pre_commit_version: '0'
+- id: meson-fmt
+  name: meson
+  description: ''
+  entry: meson format
+  language: python
+  'files': ^(.*/)?(meson\.build|meson\.format)$
+
+#- id: meson-format-fix
+#  name: meson-format
+#  description: ''
+#  entry: meson format --inplace
+#  language: python
+#  'files': ^(.*/)?(meson\.build|meson\.format)$
+#
+#- id: meson-format-fix
+#  name: meson-format
+#  description: ''
+#  entry: meson format --check-only
+#  language: python
+#  'files': ^(.*/)?(meson\.build|meson\.format)$
