@@ -21,15 +21,9 @@ jobs:
 
       - run: echo get tag ${{ env.MESON_VERSION }}
 
-      - uses: bbonkr/git-tag-check-action@v1
-        id: git_tag_check
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: '${{ env.MESON_VERSION }}'
-
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         with:
           tag: "${{ env.MESON_VERSION }}"
           tag_exists_error: false
-          message: "Latest release"
+          message: "meson ${{ env.MESON_VERSION }}"
