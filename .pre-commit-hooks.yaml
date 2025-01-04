@@ -1,7 +1,7 @@
--   id: meson
+-   id: meson-fmt
     name: meson
     description: ''
-    entry: meson
+    entry: meson fmt
     language: python
     'files': ^(.*/)?(meson\.build)$
     args: []
