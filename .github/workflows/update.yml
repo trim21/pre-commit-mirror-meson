@@ -2,6 +2,8 @@ name: update
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: '55 8 * * *'
 
 jobs:
   update:
@@ -19,7 +21,14 @@ jobs:
 
       - run: echo get tag ${{ env.MESON_VERSION }}
 
+      - uses: bbonkr/git-tag-check-action@v1
+        id: git_tag_check
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: '${{ env.MESON_VERSION }}'
+
       - uses: rickstaa/action-create-tag@v1
+        if: ${{ steps.git_tag_check.outputs.tag == '' }}
         id: "tag_create"
         with:
           tag: "${{ env.MESON_VERSION }}"
