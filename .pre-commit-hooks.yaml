@@ -1,0 +1,22 @@
+- id: meson-fmt-fix
+  name: meson-fmt-fix
+  description: 'run meson fmt --inplace'
+  entry: meson fmt -i
+  language: python
+  args: ["-style=file"]
+  require_serial: false
+  additional_dependencies: []
+  minimum_pre_commit_version: '2.9.2'
+  files: ^(.*/)?(meson\.build)$
+
+
+- id: meson-fmt-check
+  name: meson-fmt-check
+  description: 'run meson fmt --check-only'
+  entry: meson fmt --check-only
+  language: python
+  args: ["-style=file"]
+  require_serial: false
+  additional_dependencies: []
+  minimum_pre_commit_version: '2.9.2'
+  files: ^(.*/)?(meson\.build)$

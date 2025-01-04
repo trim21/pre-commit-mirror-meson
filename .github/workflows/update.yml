@@ -1,0 +1,24 @@
+name: update
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '55 8 * * *'
+
+jobs:
+  update:
+    name: update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: '${{ secrets.PAT_TOKEN }}'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - run: pip install pre-commit-mirror-maker
+      - run: git config --global user.name 'Github Actions'
+      - run: git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - run: pre-commit-mirror . --language=python --package-name=meson --files-regex='^(.*/)?(meson\.build)$'
+      - run: git push origin HEAD:refs/heads/master --tags
