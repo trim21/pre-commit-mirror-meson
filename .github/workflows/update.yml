@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - run: echo "MESON_VERSION=$(python ./scripts/get_current_ver.py)" >> $GITHUB_ENV
+      - run: echo "MESON_VERSION=v$(python ./scripts/get_current_ver.py)" >> $GITHUB_ENV
 
       - run: echo get tag ${{ env.MESON_VERSION }}
 
