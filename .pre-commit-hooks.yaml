@@ -3,7 +3,7 @@
   description: ''
   entry: meson format
   language: python
-  'files': ^(.*/)?(meson\.build|meson\.format)$
+  files: ^(.*/)?(meson\.build|meson\.format|\.editorconfig)$
 
 #- id: meson-format-fix
 #  name: meson-format
