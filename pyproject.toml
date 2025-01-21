@@ -3,7 +3,7 @@ requires = ["flit-core~=3.9"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "dump-package"
+name = "dummy-package"
 version = "0"
 description = "mirror for meson"
 authors = []
