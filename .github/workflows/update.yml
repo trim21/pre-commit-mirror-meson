@@ -8,7 +8,7 @@ jobs:
     name: update
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           token: '${{ secrets.PAT_TOKEN }}'
       - uses: actions/setup-python@v6
